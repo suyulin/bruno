@@ -10,7 +10,10 @@ class _BrnSwitchButtonExampleState extends State<BrnSwitchButtonExample> {
   bool value1 = true;
   bool value2 = true;
   bool value3 = false;
+  bool value4 = false;
   bool value5 = true;
+  bool value6 = false;
+  bool value7 = true;
 
   @override
   void initState() {
@@ -36,9 +39,9 @@ class _BrnSwitchButtonExampleState extends State<BrnSwitchButtonExample> {
                   fontSize: 28,
                   fontWeight: FontWeight.bold),
             ),
-            BrnBubbleText(maxLines: 2, text: '具备选中、未选中、以及禁用状态'),
+            BrnBubbleText(maxLines: 3, text: '具备选中、未选中、以及禁用状态，支持自定义动画效果'),
             Text(
-              '正常案例',
+              '正常案例（默认动画）',
               style: TextStyle(
                 color: Color(0xFF222222),
                 fontSize: 28,
@@ -51,6 +54,44 @@ class _BrnSwitchButtonExampleState extends State<BrnSwitchButtonExample> {
                 onChanged: (value) {
                   setState(() {
                     value1 = value;
+                  });
+                },
+              ),
+            ),
+            Text(
+              '快速动画 (100ms)',
+              style: TextStyle(
+                color: Color(0xFF222222),
+                fontSize: 28,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: BrnSwitchButton(
+                value: value6,
+                animationDuration: Duration(milliseconds: 100),
+                onChanged: (value) {
+                  setState(() {
+                    value6 = value;
+                  });
+                },
+              ),
+            ),
+            Text(
+              '慢速动画 (500ms)',
+              style: TextStyle(
+                color: Color(0xFF222222),
+                fontSize: 28,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: BrnSwitchButton(
+                value: value7,
+                animationDuration: Duration(milliseconds: 500),
+                onChanged: (value) {
+                  setState(() {
+                    value7 = value;
                   });
                 },
               ),
@@ -93,7 +134,7 @@ class _BrnSwitchButtonExampleState extends State<BrnSwitchButtonExample> {
               ),
             ),
             Text(
-              '禁用案例',
+              '禁用案例（无动画）',
               style: TextStyle(
                 color: Color(0xFF222222),
                 fontSize: 28,
@@ -108,7 +149,7 @@ class _BrnSwitchButtonExampleState extends State<BrnSwitchButtonExample> {
               ),
             ),
             Text(
-              '自定义大小',
+              '自定义大小（带动画）',
               style: TextStyle(
                 color: Color(0xFF222222),
                 fontSize: 28,

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'brn_switch_button_base.dart';
 
-
 /// 描述: 开关按钮
 class BrnSwitchButton extends StatefulWidget {
   final Size size;
@@ -20,6 +19,9 @@ class BrnSwitchButton extends StatefulWidget {
   ///未选中时边框的颜色
   final Color? borderColor;
 
+  ///动画持续时间
+  final Duration animationDuration;
+
   BrnSwitchButton({
     Key? key,
     required this.value,
@@ -27,6 +29,7 @@ class BrnSwitchButton extends StatefulWidget {
     this.enabled = true,
     this.size = const Size(42, 26),
     this.borderColor,
+    this.animationDuration = const Duration(milliseconds: 200),
   }) : super(key: key);
 
   @override
@@ -43,6 +46,7 @@ class _BrnSwitchButtonState extends State<BrnSwitchButton> {
       size: widget.size,
       trackColor: _getTrackColor(),
       thumbColor: widget.enabled ? Colors.white : Color(0xFFFDFDFD),
+      animationDuration: widget.animationDuration,
       onChanged: widget.enabled ? widget.onChanged : null,
     );
   }
